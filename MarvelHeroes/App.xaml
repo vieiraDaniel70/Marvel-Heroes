@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="MarvelHeroes.App">
+  <Application.Resources>
+
+        <ResourceDictionary>
+            <Color x:Key="Color">#FFFFFF</Color>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Color}" />
+                <Setter Property="BarTextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+        
+      
+    </Application.Resources>
+</prism:PrismApplication>

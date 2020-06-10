@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MarvelHeroes.Views.HomePage"
+             Title="{Binding Titulo}">
+
+    <Grid>
+        <cards:CardsView
+            IsCyclical="True" 
+            ItemsSource="{Binding ListaPersonagem}">
+            <cards:CardsView.ItemTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="400"/>
+                        </Grid.RowDefinitions>
+                        <BoxView 
+                                 Grid.Row="1"
+                                 BackgroundColor="Firebrick"
+                                 HeightRequest="400"
+                                 CornerRadius="30,30,0,0"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="End"/>
+                        <circle:CircleImage
+                               Grid.Row="1"
+                               Margin="40"
+                               HeightRequest="300" 
+                               TranslationY="-210"
+                               WidthRequest="300" 
+                               VerticalOptions="Start"
+                               Source="{Binding UrlImagem}"/>
+                        <StackLayout Margin="30,140,30,30" Grid.Row="1">
+                            <Label HorizontalOptions="Start"
+                                   VerticalOptions="CenterAndExpand"
+                                   Text="{Binding Nome}"
+                                   FontSize="40"
+                                   FontAttributes="Bold"
+                                   TextColor="White"/>
+                            <Label 
+                                   BackgroundColor="Transparent"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold"
+                                   Text="Know more:"
+                                   FontSize="Large"
+                                   TextColor="Yellow">
+                            </Label>
+                            <ScrollView>
+                                <Label 
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                TextColor="White"
+                                Text="{Binding Descricao}">
+                                </Label>
+                            </ScrollView>
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </cards:CardsView.ItemTemplate>
+        </cards:CardsView>   
+    </Grid>
+
+</ContentPage>
